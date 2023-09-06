@@ -1,4 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/***************************************************************
+* Name         : Multi-Page Web App w/ DB
+* Author       : Tim Ancona
+* Created      : 09/04/2023
+* Course       : CIS 174 - Advanced C#
+* Version      : 1.0
+* OS           : Windows 11
+* IDE          : Visual Studio 2022 Community
+* Copyright    : This is my own original work based on
+*                      specifications issued by our instructor
+* Description  : This web app uses a database to maintain a list
+*                   of contacts for the user.
+*                      Input : contact information, add edit and
+*                               delete requests
+*                      Output: list of contacts
+* Academic Honesty: I attest that this is my original work.
+* I have not used unauthorized source code, either modified or
+* unmodified. I have not given other fellow student(s) access
+* to my program.        
+***************************************************************/
+using Microsoft.AspNetCore.Mvc;
 using MultiPageWebAppWithDBAncona.Models;
 using System.Diagnostics;
 
