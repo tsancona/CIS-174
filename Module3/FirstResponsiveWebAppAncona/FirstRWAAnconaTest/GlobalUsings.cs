@@ -1,0 +1,3 @@
+global using Microsoft.VisualStudio.TestTools.UnitTesting;
+global using FirstResponsiveWebAppAncona.Controllers;
+global using FirstResponsiveWebAppAncona.Models;
