@@ -13,7 +13,7 @@
 *                partial views, loops, and conditionals
 *                      Input : access level
 *                      Output: different views based on access
-*                              levels 0-1, 2-7, and 8-10. Anything
+*                              levels 1, 2-7, and 8-10. Anything
 *                              entered as an access level aside from
 *                              numbers 1-10 will default to a 1.
 * Academic Honesty: I attest that this is my original work.
