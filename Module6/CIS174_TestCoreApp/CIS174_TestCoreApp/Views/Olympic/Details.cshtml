@@ -1,0 +1,24 @@
+﻿@model OlympicTeam
+@{
+    ViewData["Title"] = "Team Details";
+}
+
+<h2 class="text-center p-2">Team Details</h2>
+
+<div class="row">
+    <div class="col">
+        <ul class="list-group text-center">
+            <li class="list-group-item">
+                <img src="~/images/@Model.FlagImage" alt="" />
+                <h3>@Model.Name</h3>
+            </li>
+            <li class="list-group-item">
+                <h4>Game: @Model.OlympicGame.Name</h4>
+            </li>
+            <li class="list-group-item">
+                <h4>Category: @Model.OlympicCategory.Name</h4>
+            </li>
+            <a asp-controller="Olympic" asp-action="Index" class="btn btn-primary">Return to Home Page</a>
+        </ul>
+    </div>
+</div>

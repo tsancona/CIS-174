@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using CIS174_TestCoreApp.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<OlympicTeamContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("OlympicTeamContext")));
 
 var app = builder.Build();
 
@@ -19,6 +25,10 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "custom",
+    pattern: "{controller}/{action}/game-{activeGame}/cat-{activeCat}");
 
 app.MapControllerRoute(
     name: "default",

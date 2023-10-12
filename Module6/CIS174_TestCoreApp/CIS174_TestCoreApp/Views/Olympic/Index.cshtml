@@ -1,0 +1,37 @@
+﻿@model OlympicTeamsViewModel
+@{
+    ViewData["Title"] = "Olympic Teams";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <h3 class="mt-3">Olympic Game</h3>
+        <div class="list-group">
+            <a asp-controller="Olympic" asp-action="Index" asp-route-activeGame="all" asp-route-activeCat="@Model.ActiveCat" class="list-group-item @Model.CheckActiveGame("all")">All</a>
+            @foreach (OlympicGame game in Model.OlympicGames)
+            {
+                <a asp-controller="Olympic" asp-action="Index" asp-route-activeGame="@game.OlympicGameID" asp-route-activeCat="@Model.ActiveCat" class="list-group-item @Model.CheckActiveGame(game.OlympicGameID)">@game.Name</a>
+            }
+        </div>
+        <h3 class="mt-3">Category</h3>
+        <div class="list-group">
+            <a asp-controller="Olympic" asp-action="Index" asp-route-activeGame="@Model.ActiveGame" asp-route-activeCat="all" class="list-group-item @Model.CheckActiveCategory("all")">All</a>
+            @foreach (OlympicCategory cat in Model.OlympicCategories)
+            {
+                <a asp-controller="Olympic" asp-action="Index" asp-route-activeGame="@Model.ActiveGame" asp-route-activeCat="@cat.OlympicCategoryID" class="list-group-item @Model.CheckActiveCategory(cat.OlympicCategoryID)">@cat.Name</a>
+            }
+        </div>
+    </div>
+    <div class="col-md-9">
+        <ul class="list-inline">
+            @foreach (OlympicTeam team in Model.OlympicTeams)
+            {
+                <li class="list-inline-item">
+                    <a asp-controller="Olympic" asp-action="Details" asp-route-id="@team.OlympicTeamID">
+                        <img src="~/images/@team.FlagImage" alt="@team.Name" title="@team.Name | @team.OlympicGame.Name @team.OlympicCategory.Name" />
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
