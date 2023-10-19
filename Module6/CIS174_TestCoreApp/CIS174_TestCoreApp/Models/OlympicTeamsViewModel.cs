@@ -7,6 +7,7 @@
         public List<OlympicTeam> OlympicTeams { get; set;} = new List<OlympicTeam>();
         public List<OlympicGame> OlympicGames { get; set; } = new List<OlympicGame>();
         public List<OlympicCategory> OlympicCategories { get; set;} = new List<OlympicCategory>();
+        public OlympicTeam OlympicTeam { get; set; } = new OlympicTeam();
 
         public string CheckActiveGame(string game)
         {

@@ -37,6 +37,9 @@ namespace CIS174_TestCoreApp.Controllers
 
         public ViewResult Index(OlympicTeamsViewModel model)
         {
+            var session = new OlympicSession(HttpContext.Session);
+            session.SetActiveGame(model.ActiveGame);
+            session.SetActiveCat(model.ActiveCat);
             model.OlympicGames = context.OlympicGames.ToList();
             model.OlympicCategories = context.OlympicCategories.ToList();
 
@@ -57,8 +60,15 @@ namespace CIS174_TestCoreApp.Controllers
 
         public IActionResult Details(string id)
         {
-            var team = context.OlympicTeams.Include(t => t.OlympicGame).Include(t => t.OlympicCategory).FirstOrDefault(t => t.OlympicTeamID == id) ?? new OlympicTeam();
-            return View(team);
+            var session = new OlympicSession(HttpContext.Session);
+            var model = new OlympicTeamsViewModel
+            {
+                OlympicTeam = context.OlympicTeams.Include(t => t.OlympicGame).Include(t => t.OlympicCategory).FirstOrDefault(t => t.OlympicTeamID == id) ?? new OlympicTeam(),
+                ActiveGame = session.GetActiveGame(),
+                ActiveCat = session.GetActiveCat()
+            };
+            
+            return View(model);
         }
     }
 }

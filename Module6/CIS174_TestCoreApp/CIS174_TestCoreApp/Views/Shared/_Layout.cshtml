@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    string controller = ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -45,6 +49,28 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            @* show any message in TempData *@
+            @if (TempData.Keys.Contains("message"))
+            {
+                <h4 class="bg-success text-center p-2">@TempData["message"]</h4>
+            }
+
+            @* show link to Favorites page unless on Favorites page *@
+            @if (controller == "Olympic")
+            {
+                var session = new OlympicSession(Context.Session);
+                int? count = session.GetMyTeamCount();
+
+                @* if there are fave teams in session, display faves link *@
+                @if (count.HasValue)
+                {
+                    <h5 class="p-2 text-center">
+                        <a asp-controller="Favorites" asp-action="Index"
+                           class="text-black">My Favorite Teams</a>
+                        <span class="badge bg-dark text-white">@count</span>
+                    </h5>
+                }
+            }
             @RenderBody()
         </main>
     </div>
