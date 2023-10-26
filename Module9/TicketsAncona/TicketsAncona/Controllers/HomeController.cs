@@ -1,4 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/***************************************************************
+* Name         : Tickets App
+* Author       : Tim Ancona
+* Created      : 10/25/2023
+* Course       : CIS 174 - Advanced C#
+* Version      : 1.0
+* OS           : Windows 11
+* IDE          : Visual Studio 2022 Community
+* Copyright    : This is my own original work based on
+*                      specifications issued by our instructor
+* Description  : This app demonstrates model binding through a
+*                ticketing app for tracking projects.
+*                      Input : Ticket info
+*                      Output: Tickets
+* Academic Honesty: I attest that this is my original work.
+* I have not used unauthorized source code, either modified or
+* unmodified. I have not given other fellow student(s) access
+* to my program.        
+***************************************************************/
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using TicketsAncona.Models;
