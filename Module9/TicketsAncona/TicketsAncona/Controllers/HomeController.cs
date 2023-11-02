@@ -75,6 +75,7 @@ namespace TicketsAncona.Controllers
             }
             else
             {
+                ModelState.AddModelError("", "There are errors in the form.");
                 model.Statuses = context.Statuses.ToList();
                 return View(model);
             }

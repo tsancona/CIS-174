@@ -2,19 +2,62 @@
 
 <h2>New Ticket</h2>
 
-<div asp-validation-summary="All" class="text-danger"></div>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 <form asp-action="Add" method="post">
-    <div class="mb-3">
-        <label asp-for="CurrentTicket.Name" class="form-label">Name:</label> <input asp-for="CurrentTicket.Name" class="form-control">
-    </div> <div class="mb-3">
-        <label asp-for="CurrentTicket.Description" class="form-label">Description:</label> <input asp-for="CurrentTicket.Description" class="form-control">
-    </div> <div class="mb-3">
-        <label asp-for="CurrentTicket.SprintNumber" class="form-label">Sprint Number:</label> <input asp-for="CurrentTicket.SprintNumber" class="form-control">
-    </div> <div class="mb-3">
-        <label asp-for="CurrentTicket.PointValue" class="form-label">Point Value:</label> <input asp-for="CurrentTicket.PointValue" class="form-control">
-    </div> <div class="mb-3">
-        <label asp-for="CurrentTicket.StatusId" class="form-label">Status:</label> <select asp-for="CurrentTicket.StatusId" class="form-select" asp-items="@(new SelectList(Model.Statuses, "StatusId", "Name"))">
-        </select>
+    <div class="row mb-2">
+        <div class="col-md-2">
+            <label asp-for="CurrentTicket.Name" class="form-label">Name:</label>
+        </div>
+        <div class="col-md-4">
+            <input asp-for="CurrentTicket.Name" class="form-control">
+        </div>
+        <div class="col-md-6">
+            <span asp-validation-for="CurrentTicket.Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-md-2">
+            <label asp-for="CurrentTicket.Description" class="form-label">Description:</label>
+        </div>
+        <div class="col-md-4">
+            <input asp-for="CurrentTicket.Description" class="form-control">
+        </div>
+        <div class="col-md-6">
+            <span asp-validation-for="CurrentTicket.Description" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-md-2">
+            <label asp-for="CurrentTicket.SprintNumber" class="form-label">Sprint Number:</label>
+        </div>
+        <div class="col-md-4">
+            <input asp-for="CurrentTicket.SprintNumber" class="form-control">
+        </div>
+        <div class="col-md-6">
+            <span asp-validation-for="CurrentTicket.SprintNumber" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-md-2">
+            <label asp-for="CurrentTicket.PointValue" class="form-label">Point Value:</label>
+        </div>
+        <div class="col-md-4">
+            <input asp-for="CurrentTicket.PointValue" class="form-control">
+        </div>
+        <div class="col-md-6">
+            <span asp-validation-for="CurrentTicket.PointValue" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-md-2">
+            <label asp-for="CurrentTicket.StatusId" class="form-label">Status:</label>
+        </div>
+        <div class="col-md-4">
+            <select asp-for="CurrentTicket.StatusId" class="form-select" asp-items="@(new SelectList(Model.Statuses, "StatusId", "Name"))"></select>
+        </div>
+        <div class="col-md-6">
+            <span asp-validation-for="CurrentTicket.StatusId" class="text-danger"></span>
+        </div>
     </div>
     <button type="submit" class="btn btn-primary">Add</button> <a asp-action="Index" class="btn btn-primary">Cancel</a>
 </form>
