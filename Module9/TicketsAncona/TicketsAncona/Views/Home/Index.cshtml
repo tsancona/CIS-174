@@ -9,7 +9,7 @@
                     <option value="all">All</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Filter</button>
+            <button type="submit">Filter</button>
             <a asp-action="Index" asp-route-id="" class="btn btn-primary">
                 Clear
             </a>
@@ -41,7 +41,7 @@
                                 @if (@ticket.StatusId != "done")
                                 {
                                     <button type="submit"
-                                            class="btn btn-primary btn-sm" name="@nameof(ticket.Id)" value="@ticket.Id">
+                                            class="btn-sm" name="@nameof(ticket.Id)" value="@ticket.Id">
                                         Mark Completed
                                     </button>
                                 }
@@ -53,7 +53,7 @@
         </form>
         <form asp-action="DeleteComplete" method="post" asp-route-id="@Model.Filters.FilterString">
             <a asp-action="Add" class="btn btn-primary"> Add new ticket</a>
-            <button type="submit" class="btn btn-primary"> Delete completed tickets</button>
+            <button type="submit"> Delete completed tickets</button>
         </form>
     </div>
 </div> 

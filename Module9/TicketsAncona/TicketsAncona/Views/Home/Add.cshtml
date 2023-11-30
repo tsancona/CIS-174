@@ -48,16 +48,6 @@
             <span asp-validation-for="CurrentTicket.PointValue" class="text-danger"></span>
         </div>
     </div>
-    <div class="row mb-2">
-        <div class="col-md-2">
-            <label asp-for="CurrentTicket.StatusId" class="form-label">Status:</label>
-        </div>
-        <div class="col-md-4">
-            <select asp-for="CurrentTicket.StatusId" class="form-select" asp-items="@(new SelectList(Model.Statuses, "StatusId", "Name"))"></select>
-        </div>
-        <div class="col-md-6">
-            <span asp-validation-for="CurrentTicket.StatusId" class="text-danger"></span>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Add</button> <a asp-action="Index" class="btn btn-primary">Cancel</a>
+    <vc:status-dropdown model="Model"></vc:status-dropdown>
+    <button type="submit">Add</button> <a asp-action="Index" class="btn btn-primary">Cancel</a>
 </form>
